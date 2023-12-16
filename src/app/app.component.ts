@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from './models/product';
-import { IPagination } from './models/pagination';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +6,10 @@ import { IPagination } from './models/pagination';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ClientEcommerce';
 
-  products: IProduct[] = [];
-
-  constructor(private http: HttpClient){}
+  constructor(){}
 
   ngOnInit(): void {
-    this.http.get<IPagination>('https://localhost:44396/api/Products?pageSize=50').subscribe(
-      (response: IPagination) => {
-      this.products = response.data;
-    }, error => {
-      console.log(error);
-    });
+
   }
 }
