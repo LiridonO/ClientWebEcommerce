@@ -1,16 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PagingHeaderComponent } from './components/pagingheader/paging-header.component';
+import { PagerComponent } from './components/pager/pager.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PagingHeaderComponent,
+    PagerComponent
+  ],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    PaginationModule.forRoot()
   ],
   exports: [
-    MatIconModule
+    MatIconModule,
+    PaginationModule,
+    PagingHeaderComponent,
+    PagerComponent
   ]
 })
 export class SharedModule { }
