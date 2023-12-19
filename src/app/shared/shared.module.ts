@@ -4,6 +4,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PagingHeaderComponent } from './components/pagingheader/paging-header.component';
 import { PagerComponent } from './components/pager/pager.component';
+import {CarouselModule} from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -14,13 +15,15 @@ import { PagerComponent } from './components/pager/pager.component';
   imports: [
     CommonModule,
     MatIconModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   exports: [
     MatIconModule,
     PaginationModule,
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    CarouselModule
   ]
 })
 export class SharedModule { }
