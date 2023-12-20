@@ -3,15 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data:{breadcrumb:'Home'} },
-  {
-    path: 'shop',
-    loadChildren: () =>
-      import('./shop/shop.module').then((mod) => mod.ShopModule),
-    data: { breadcrumb: 'Shop' },
-  },
+  {path: '', component: HomeComponent, data:{breadcrumb:'Home'}},
+  {path: 'shop',loadChildren: () =>  import('./shop/shop.module').then((mod) => mod.ShopModule),data: { breadcrumb: 'Shop' }},
+  {path: 'basket',loadChildren: () =>  import('./basket/basket.module').then((mod) => mod.BasketModule),data: { breadcrumb: 'Basket' }},
+  {path: 'checkout',loadChildren: () =>  import('./checkout/checkout.module').then((mod) => mod.CheckoutModule),data: { breadcrumb: 'Checkout' }},
+  {path: '**', redirectTo: 'home', pathMatch: 'full' },
 
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
