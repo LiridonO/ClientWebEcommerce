@@ -19,7 +19,9 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.basket$ = this.basketService.basket$;
     this.currentUser$ = this.accountService.currentUser$;
-    console.log(this.currentUser$);
+  }
 
+  logout(){
+    this.accountService.logout();
   }
 }
