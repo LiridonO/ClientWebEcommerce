@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
+import { JwtInterCeptor } from './core/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor,multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterCeptor,multi:true},
   ],
   bootstrap: [AppComponent]
 })
