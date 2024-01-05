@@ -12,3 +12,14 @@ label.xng-breadcrumb-trail{
 .xng-breadcrumb-seperator{
   padding: 0 0 ;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  height: fit-content;
+}

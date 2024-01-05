@@ -13,6 +13,7 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { BasketSummaryComponent } from './basket-summary/basket-summary.component';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RouterModule } from '@angular/router';
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
     CdkStepperModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     MatIconModule,
@@ -46,7 +48,8 @@ import { RouterModule } from '@angular/router';
     TextInputComponent,
     CdkStepperModule,
     StepperComponent,
-    BasketSummaryComponent
+    BasketSummaryComponent,
+    MaterialModule
   ]
 })
 export class SharedModule { }

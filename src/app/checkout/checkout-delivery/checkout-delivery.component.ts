@@ -17,13 +17,17 @@ export class CheckoutDeliveryComponent implements OnInit {
 
   ngOnInit() {
     this.checkoutService.getDeliveryMethods().subscribe((dm: IDeliveryMethod[]) => {
-      this.deliveryMethods = dm;
+      this.deliveryMethods = dm.map(method => ({ ...method, checked: false }));
     }, error => {
       console.log(error);
     })
   }
 
-  setShippingPrice(deliveryMethod: IDeliveryMethod){
+  setShippingPrice(deliveryMethod: any){
+    this.deliveryMethods.forEach((item: any) => {
+      item.checked = false;
+    })
+    deliveryMethod.checked = !deliveryMethod.checked
     this.basketService.setShippingPrice(deliveryMethod);
   }
 }

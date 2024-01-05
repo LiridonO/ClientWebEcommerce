@@ -25,7 +25,7 @@ export class CheckoutComponent implements OnInit {
         street:[null,Validators.required],
         city:[null,Validators.required],
         state:[null,Validators.required],
-        zipcode:[null,Validators.required],
+        zipCode:[null,Validators.required],
       }),
       deliveryForm: this.fb.group({
         deliveryMethod: [null,Validators.required]
@@ -38,6 +38,7 @@ export class CheckoutComponent implements OnInit {
 
   getAddressFormValues(){
     this.accountService.getUserAddress().subscribe(address => {
+
       if(address) {
         this.checkoutForm.get('addressForm').patchValue(address);
       }

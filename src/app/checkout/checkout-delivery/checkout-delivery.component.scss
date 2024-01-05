@@ -1,0 +1,21 @@
+.card{
+  width: 200px;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+  cursor: pointer;
+  i{
+    font-size: 4rem;
+  }
+  .selected-method{
+    font-size: 20px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    color: green;
+  }
+  &:hover{
+    box-shadow: 0 0 5px 1px lightgray;
+  }
+}

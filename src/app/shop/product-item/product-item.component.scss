@@ -4,6 +4,15 @@
   margin-left:5px
 }
 
+.image{
+  min-height: 300px;
+  padding: 20px;
+  img{
+    min-height: 250px;
+    object-fit: scale-down;
+  }
+}
+
 .image :hover{
   opacity: 1;
   &button{

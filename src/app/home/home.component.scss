@@ -1,9 +1,32 @@
-.featured{
-  height: 250px;
+.carousel{
+  margin-top: 103px;
 }
 
 img{
   object-fit: cover;
   height: 700px;
   width: 100%;
+}
+
+.featured{
+  .brands{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 50px;
+    .brand{
+      img{
+        width: 200px;
+        height: 150px;
+        object-fit: scale-down;
+        filter: grayscale(1);
+        transition: all .2s ease;
+      }
+      &:hover{
+        img{
+          filter: grayscale(0);
+        }
+      }
+    }
+  }
 }

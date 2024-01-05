@@ -1,19 +1,21 @@
 <div class="mt-4" [formGroup]="checkoutForm">
   <h4 class="mb-3">Choose your delivery method</h4>
-  <div class="row ml-5" formGroupName="deliveryForm">
-    <div class="col-6 form-group" *ngFor="let method of deliveryMethods">
-      <input type="radio"
-        id={{method.id}}
-        (click)="setShippingPrice(method)"
-        value={{method.id}}
-        formControlName="deliveryMethod"
-        class="custom-control-input"
-      >
-      <label for="{{method.id}}" class="custom-control-label">
-        <strong>{{method.shortName}} - {{method.price | currency}}</strong>
-        <br>
+  <div class="row ml-5" style="gap: 10px;margin-bottom: 20px;justify-content: center;" formGroupName="deliveryForm">
+    <div class="card" *ngFor="let method of deliveryMethods" (click)="setShippingPrice(method)">
+      <i class="fa fa-solid fa-check selected-method" *ngIf="method.checked"></i>
+      <i class="fa fa-solid fa-plane" *ngIf="method.id == 1"></i>
+      <i class="fa fa-solid fa-truck" *ngIf="method.id == 2"></i>
+      <i class="fa fa-solid fa-car" *ngIf="method.id == 3"></i>
+      <i class="fa fa-solid fa-motorcycle" *ngIf="method.id ==4"></i>
+      <div class="title">
+        <label for="{{method.id}}" class="custom-control-label">
+          <strong>{{method.shortName}} - {{method.price | currency}}</strong>
+          <br>
+        </label>
+      </div>
+      <div class="selection">
         <span class="label-description">{{method.description}}</span>
-      </label>
+      </div>
     </div>
   </div>
 </div>

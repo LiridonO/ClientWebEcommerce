@@ -1,18 +1,20 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { IProduct } from '../shared/models/product';
 import { ShopService } from './shop.service';
 import { IBrand } from '../shared/models/brand';
 import { IProductType } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.scss']
+  styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
 
   @ViewChild('search', {static:false}) searchTerm: ElementRef;
+  sortValue = new FormControl('');
   products: IProduct[];
   brands: IBrand[];
   types: IProductType[];
