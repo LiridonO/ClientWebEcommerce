@@ -9,4 +9,20 @@ app-basket-summary{
       text-align: center;
     }
   }
+  ::ng-deep{
+    .plus-minus{
+      width: 100%;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+}
+
+
+.buttons{
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
 }

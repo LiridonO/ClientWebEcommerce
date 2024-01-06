@@ -51,6 +51,38 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="card-view">
+      <div class="card item" *ngFor="let item of (basket$ | async).items">
+        <div class="top-row">
+          <div class="image">
+            <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid">
+          </div>
+          <div class="product-title">
+            <a routerLink="/shop/{{item.id}}" class="text-dark">{{item.productName}}</a>
+          </div>
+        </div>
+        <div class="mid-row">
+          <div class="type">
+            Type: {{item.type}}
+          </div>
+          <div class="price">Price: {{item.price | currency}}</div>
+          <div class="total-price">Total price: {{item.price * item.quantity | currency}}</div>
+        </div>
+        <div class="bottom-row">
+          <div class="plus-minus">
+            <i *ngIf="isBasket" (click)="decrementItemQuantity(item)" class="fa fa-minus circle text-warning mr-2" style="cursor: pointer; font-size: 2em;"></i>
+            <span class="font-weight-bold" style="font-size: 1.5em;margin: 0 10px;"><span *ngIf="!isBasket">Sasia:</span>{{item.quantity}}</span>
+            <i *ngIf="isBasket" (click)="incrementItemQuantity(item)" class="fa fa-plus circle text-warning" style="cursor: pointer; font-size: 2em;margin-right: 20px;"></i>
+          </div>
+          <div class="delete">
+            <a class="text-danger">
+              <i *ngIf="isBasket" (click)="removeBasketItem(item)" class="fa fa-trash ml-3" style="font-size: 2em; cursor: pointer;margin-left: 18px;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-container>
 

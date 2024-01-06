@@ -1,3 +1,10 @@
 .container{
   margin-top: 130px !important;
+  .checkout{
+    display: flex;
+    flex-wrap: wrap;
+    .left, .right{
+      width: 100%;
+    }
+  }
 }

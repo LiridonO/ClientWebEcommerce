@@ -4,6 +4,7 @@ import { ShopService } from '../shop.service';
 import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { BasketService } from 'src/app/basket/basket.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +17,8 @@ export class ProductDetailsComponent implements OnInit {
   quantity = 1;
 
   constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute, private bcService: BreadcrumbService,
-    private basketService: BasketService){
+    private basketService: BasketService,
+    private _snackBar: MatSnackBar){
     this.bcService.set('@productDetails', '');
   }
 
@@ -25,6 +27,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addItemToBasket(){
+    this._snackBar.open("Product added successfully","Close",{duration: 3000});
     this.basketService.addItemToBasket(this.product, this.quantity);
   }
 

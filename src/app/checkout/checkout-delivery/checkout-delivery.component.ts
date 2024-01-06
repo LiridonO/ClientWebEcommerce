@@ -12,6 +12,7 @@ import { BasketService } from 'src/app/basket/basket.service';
 export class CheckoutDeliveryComponent implements OnInit {
   @Input() checkoutForm: FormGroup;
   deliveryMethods: IDeliveryMethod[];
+  deliveryChosen: boolean = false;
 
   constructor(private checkoutService: CheckoutService, private basketService: BasketService){}
 
@@ -27,6 +28,7 @@ export class CheckoutDeliveryComponent implements OnInit {
     this.deliveryMethods.forEach((item: any) => {
       item.checked = false;
     })
+    this.deliveryChosen = true;
     deliveryMethod.checked = !deliveryMethod.checked
     this.basketService.setShippingPrice(deliveryMethod);
   }

@@ -1,15 +1,81 @@
-.img-fluid{
+.img-fluid {
   min-width: 100px;
   object-fit: scale-down;
 }
 
-thead{
-  th{
+thead {
+  th {
     text-align: center;
   }
 }
-tbody{
-  td{
+
+tbody {
+  td {
     text-align: center;
   }
 }
+
+.card-view {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+  display: none;
+
+  .item {
+    width: calc(33% - 10px);
+    gap: 15px;
+    padding-bottom: 20px;
+
+    .top-row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .image {
+        min-height: 100px;
+
+        img {
+          min-height: 100px;
+          width: 50px;
+        }
+      }
+    }
+
+    .mid-row {
+      text-align: center;
+    }
+
+    .bottom-row {
+      display: flex;
+      justify-content: space-around;
+
+      .plus-minus {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-view{
+    display: flex !important;
+    .item{
+      flex-basis: calc(50% - 10px) !important;
+    }
+  }
+  .table{
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-view{
+    .item{
+      flex-basis: 100% !important;
+    }
+  }
+}
+

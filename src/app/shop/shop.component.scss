@@ -1,20 +1,93 @@
-.container{
+.container {
   margin-top: 120px !important;
-  ul{
-    li{
+
+  .shop {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    .categories-filter {
+      flex: 2;
+    }
+
+    .products-wrapper {
+      flex: 7;
+      input{
+        max-width: 300px;
+      }
+
+      .products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 30px;
+        margin-top: 10px;
+
+        .product {
+          flex-basis: calc(33% - 10px);
+        }
+
+        app-paging-header {
+          width: 100%;
+          text-align: right;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  ul {
+    li {
       cursor: pointer;
     }
   }
 }
-.form-inline{
+
+.form-inline {
   display: flex;
   gap: 10px;
   align-items: center;
-  input{
+  width: 100%;
+  justify-content: flex-end;
+
+  input {
     height: 40px;
   }
-  .buttons{
+
+  .buttons {
     display: flex;
     gap: 5px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .categories-filter {
+    flex-basis: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product {
+    flex-basis: calc(50% - 10px) !important;
+  }
+  input{
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .product {
+    flex-basis: 100% !important;
+  }
+  .form-inline{
+    flex-wrap: wrap;
+  }
+  .buttons{
+    width: 100%;
+    button{
+      width: 100%;
+    }
   }
 }

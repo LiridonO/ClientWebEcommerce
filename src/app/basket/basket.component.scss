@@ -5,3 +5,10 @@
 a{
   float: right;
 }
+
+
+@media screen and (max-width: 767px) {
+  .container{
+    margin-top: 150px !important;
+  }
+}
