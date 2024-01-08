@@ -2,28 +2,25 @@
   <div class="shop">
     <section class="categories-filter">
       <ng-container *ngIf="types && brands">
-        <h5 class="text-warning ml-3 mt-4 mb-3">Sort</h5>
-        <select class="custom-select mb-4" (change)="onSortSelected($event.target.value)">
-          <option *ngFor="let sort of sortOptions" [value]="sort.value">
-            {{sort.name}}
-          </option>
-        </select>
-        <!-- <mat-form-field>
+        <mat-form-field>
           <mat-label>Sort</mat-label>
-          <mat-select [formControl]="sortValue">
-            <mat-option *ngFor="let sort of sortOptions" [value]="sort.value">{{sort.name}}</mat-option>
+          <mat-select name="sort">
+            <mat-option *ngFor="let sort of sortOptions" [value]="sort.name" (click)="onSortSelected(sort.value)">
+              {{sort.name}}
+            </mat-option>
           </mat-select>
-        </mat-form-field> -->
+        </mat-form-field>
 
-        <h5 class="text-warning ml-3">Brands</h5>
-        <ul class="list-group my-3">
+        <h4 class="text-warning ml-3">Brands</h4>
+        <ul class="list-group">
           <li class="list-group-item" *ngFor="let brand of brands" [class.active]="brand.id === this.shopParams.brandId"
             [value]="brand.id" (click)="onBrandSelected(brand.id)">
             {{brand.name}}
           </li>
         </ul>
-        <h5 class="text-warning ml-3">Types</h5>
-        <ul class="list-group my-3">
+
+        <h4 class="text-warning ml-3">Types</h4>
+        <ul class="list-group">
           <li class="list-group-item" *ngFor="let type of types" [class.active]="type.id === this.shopParams.typeId"
             [value]="type.id" (click)="onTypeSelected(type.id)">
             {{type.name}}
